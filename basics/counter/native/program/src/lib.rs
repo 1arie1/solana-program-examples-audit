@@ -8,6 +8,9 @@ use solana_program::{
     pubkey::Pubkey,
 };
 
+#[cfg(feature = "certora")]
+mod certora;
+
 mod state;
 use state::*;
 
@@ -44,6 +47,7 @@ pub fn process_increment_counter(
     let account_info_iter = &mut accounts.iter();
 
     let counter_account = next_account_info(account_info_iter)?;
+    #[cfg(not(feature = "certora"))]
     assert!(
         counter_account.is_writable,
         "Counter account must be writable"
