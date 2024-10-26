@@ -1,0 +1,3 @@
+import '../../../../justfile'
+
+sbf_file := "target/sbf-solana-solana/release/counter_solana_bytemuck.so"

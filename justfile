@@ -1,6 +1,10 @@
 # user settings should be placed into .env file in some ancestor directory
 set dotenv-load
 
+alias v := verify
+alias vv := vacuity
+alias b := build-sbf
+
 # used by OSX, ignore otherwise
 export CPATH := env_var_or_default("CPATH", "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include")
 # magic llvm flags
