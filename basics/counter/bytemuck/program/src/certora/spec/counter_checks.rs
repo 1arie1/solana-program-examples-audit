@@ -1,5 +1,6 @@
 #![allow(unused_imports)]
 
+use calltrace::cvt_cex_print_u64;
 use cvt::{cvt_assert, cvt_assume, cvt_vacuity_check};
 use cvt_macros::rule;
 use nondet::{acc_infos_with_mem_layout, nondet};
@@ -30,8 +31,9 @@ pub fn rule_count_mono() {
         let counter: &crate::state::Counter = bytemuck::from_bytes(&data[..]);
         *counter
     };
-    let count_new : u64 = counter_new.count.into();
+    let count_new: u64 = counter_new.count.into();
 
+    cvt_cex_print_u64!("old, new", count_old, count_new);
     // -- assert that counter increase monotonically
     // -- this assumes that contract call did not revewrt
     // -- and that arithmetic is checked and, thereofre, overflow causes revert
