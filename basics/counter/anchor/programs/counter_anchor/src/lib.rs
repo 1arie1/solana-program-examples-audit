@@ -13,7 +13,7 @@ pub mod counter_anchor {
     }
 
     pub fn increment(ctx: Context<Increment>) -> Result<()> {
-        ctx.accounts.counter.count = ctx.accounts.counter.count.checked_add(1).unwrap();
+        ctx.accounts.counter.count += 1;
         Ok(())
     }
 }
@@ -29,17 +29,20 @@ pub struct InitializeCounter<'info> {
         payer = payer
     )]
     pub counter: Account<'info, Counter>,
+    pub owner: UncheckedAccount<'info>,
     pub system_program: Program<'info, System>,
 }
 
 #[derive(Accounts)]
 pub struct Increment<'info> {
-    #[account(mut)]
+    #[account(mut, has_one = owner)]
     pub counter: Account<'info, Counter>,
+    pub owner: Signer<'info>
 }
 
 #[account]
 #[derive(InitSpace)]
 pub struct Counter {
+    owner: Pubkey,
     count: u64,
 }
