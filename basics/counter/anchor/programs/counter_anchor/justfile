@@ -1,0 +1,3 @@
+import '../../../../../justfile'
+
+sbf_file := "basics/counter/anchor/target/sbf-solana-solana/release/counter_solana_anchor.so"
