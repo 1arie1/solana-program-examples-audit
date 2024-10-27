@@ -12,3 +12,28 @@ codegen-units = 1
 opt-level = 3
 incremental = false
 codegen-units = 1
+
+[workspace.dependencies]
+nondet = { git = "https://github.com/Certora/solana-cvt.git" }
+cvt = { git = "https://github.com/Certora/solana-cvt.git" }
+early-panic = { git = "https://github.com/Certora/solana-cvt.git" }
+cvt-macros = { git = "https://github.com/Certora/solana-cvt.git" }
+calltrace = { git = "https://github.com/Certora/solana-cvt.git" }
+solana_cvt = { git = "https://github.com/Certora/solana-cvt.git" }
+hook_macro = { git = "https://github.com/Certora/solana-cvt.git" }
+
+[patch.crates-io]
+anchor-lang = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-spl = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-cli = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-client = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-syn = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-attribute-constant = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-attribute-program = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-attribute-account = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-attribute-access-control = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-attribute-error = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-attribute-event = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+anchor-derive-accounts = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+avm = {git = "https://github.com/Certora/anchor.git", branch = "certora-v0.30.1"}
+

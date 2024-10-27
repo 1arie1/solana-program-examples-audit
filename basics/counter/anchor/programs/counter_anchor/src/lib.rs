@@ -4,6 +4,12 @@ use anchor_lang::prelude::*;
 
 declare_id!("BmDHboaj1kBUoinJKKSRqKfMeRKJqQqEbUj1VgzeQe4A");
 
+#[cfg(feature = "certora")]
+mod certora;
+
+#[cfg(feature = "certora")]
+use nondet::Nondet;
+
 #[program]
 pub mod counter_anchor {
     use super::*;
@@ -42,6 +48,7 @@ pub struct Increment<'info> {
 
 #[account]
 #[derive(InitSpace)]
+#[cfg_attr(feature = "certora", derive(Nondet))]
 pub struct Counter {
     owner: Pubkey,
     count: u64,

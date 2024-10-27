@@ -1,12 +1,11 @@
 [package]
-name = "counter_anchor"
+name = "counter-solana-anchor"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "counter_anchor"
 
 [features]
 default = []
@@ -15,6 +14,20 @@ no-entrypoint = []
 no-idl = []
 no-log-ix-name = []
 idl-build = ["anchor-lang/idl-build"]
+certora = ["no-entrypoint", "dep:cvt", "dep:nondet", 
+           "dep:cvt-macros", "dep:early-panic", "dep:calltrace", 
+           "dep:solana_cvt", "dep:hook_macro"]
+certora_vacuity = ["cvt/vacuity"]
 
 [dependencies]
-anchor-lang =  "0.30.0"
+anchor-lang = { version = "=0.30.1"}
+anchor-spl = {version = "=0.30.1" }
+borsh = {version = ">=0.10, <0.11"}
+
+nondet = { workspace = true, optional = true, features = ["solana", "derive"]}
+cvt = { workspace = true, optional = true}
+cvt-macros = { workspace = true, optional = true}
+early-panic = { workspace = true, optional = true}
+calltrace = { workspace = true, optional = true}
+solana_cvt = { workspace = true, optional = true}
+hook_macro = { workspace = true, optional = true}
