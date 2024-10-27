@@ -18,7 +18,7 @@ pub fn process_instruction(
     };
 
     if IncrementPageVisits::try_from_slice(instruction_data).is_ok() {
-        return instructions::increment::increment_page_visits(accounts);
+        return instructions::increment::increment_page_visits(program_id, accounts);
     }
 
     Err(ProgramError::InvalidInstructionData)
