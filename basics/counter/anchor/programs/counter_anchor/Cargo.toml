@@ -22,7 +22,7 @@ certora_vacuity = ["cvt/vacuity"]
 [dependencies]
 anchor-lang = { version = "=0.30.1"}
 anchor-spl = {version = "=0.30.1" }
-borsh = {version = ">=0.10, <0.11"}
+borsh = {version = ">=0.10, <1.6"}
 
 nondet = { workspace = true, optional = true, features = ["solana", "derive"]}
 cvt = { workspace = true, optional = true}
