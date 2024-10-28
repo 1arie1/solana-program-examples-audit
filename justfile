@@ -38,11 +38,11 @@ inliner_cfg   := certora-scripts  / "cvt_inlining.txt"
 summaries_cfg := certora-scripts  / "cvt_summaries.txt"
 file := prj_root / sbf_file
 
-remote_prj_root := source_directory()
+remote_prj_root := "../../../.."
 remote_certora-scripts := remote_prj_root / "certora"
 remote_inliner_cfg   := remote_certora-scripts  / "cvt_inlining.txt"
 remote_summaries_cfg := remote_certora-scripts  / "cvt_summaries.txt"
-
+remote_file := remote_prj_root / sbf_file
 
 doc:
 	cargo doc --lib -F certora
@@ -111,7 +111,7 @@ vacuity RULE *OPTS: (build-sbf "certora_vacuity")
 
 # Usage: verify-remote name_of_rule extra_options
 verify-remote RULE *OPTS: build-sbf
-		${CERTORA_CLI} {{ file }} \
+		${CERTORA_CLI} {{ remote_file }} \
 		 {{ OPTS }} \
 		 --prover_args \
 		 "-solanaInlining {{ remote_inliner_cfg }} \
