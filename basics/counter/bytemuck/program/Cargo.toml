@@ -17,7 +17,7 @@ certora_vacuity = ["cvt/vacuity"]
 
 
 [dependencies]
-solana-program = "=1.18.17"
+solana-program = "=2.0.16"
 borsh = "=0.10"
 bytemuck = "1.7.2"
 spl-pod = "0.2.5"
